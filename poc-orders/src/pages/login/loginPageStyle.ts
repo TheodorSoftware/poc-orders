@@ -1,5 +1,3 @@
-import LoginPage from "./LoginPage";
-
 export const loginPageStyle = {
     loginPageContainer: {
         width: '100%',
@@ -40,5 +38,8 @@ export const loginPageStyle = {
         color: 'grey',
         textDecoration: 'none'
         
+    },
+    loginPageErrorMessage:{
+        color:'red'
     }
 }

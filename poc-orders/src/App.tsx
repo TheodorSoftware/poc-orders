@@ -1,8 +1,12 @@
 import { Fragment } from 'react'
 import './App.css'
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LoginPage from './pages/login/LoginPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
+import GuardedRoute from './utils/GuardedRoute/GuardedRoute'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './utils/theme/theme'
+import DashboardLayout from './utils/layouts/DashboardLayout'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,20 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <DashboardPage />
+    element: 
+      <GuardedRoute> 
+        <DashboardLayout/> 
+      </GuardedRoute>,
+    children: [
+      {
+        path: '/',
+        element: <DashboardPage />
+      },
+      {
+        path: '/products',
+        element: <p> Produse </p>
+      }
+    ]
   },
   {
     path: '*',
@@ -27,7 +44,9 @@ function App() {
 
   return (
    <Fragment>
-    <RouterProvider router={router}/>
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router}/>    
+    </ThemeProvider>
    </Fragment>
   )
 }
