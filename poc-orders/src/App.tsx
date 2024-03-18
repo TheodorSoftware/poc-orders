@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import './App.css'
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LoginPage from './pages/login/LoginPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
+import GuardedRoute from './utils/GuardedRoute/GuardedRoute'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <DashboardPage />
+    element: <GuardedRoute> <DashboardPage/> </GuardedRoute>
   },
   {
     path: '*',

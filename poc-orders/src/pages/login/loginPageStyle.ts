@@ -40,5 +40,8 @@ export const loginPageStyle = {
         color: 'grey',
         textDecoration: 'none'
         
+    },
+    loginPageErrorMessage:{
+        color:'red'
     }
 }

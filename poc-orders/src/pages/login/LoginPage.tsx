@@ -1,31 +1,31 @@
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Box, Button, FormGroup, Typography } from "@mui/material";
 import { loginPageStyle } from "./loginPageStyle";
 import { TextField } from '@mui/material';
-import { NavLink } from "react-router-dom";
+import { NavLink, NavigateFunction, useNavigate } from "react-router-dom";
 import { emailRegex } from "../../utils/regex/emailReGex";
 import { LoginCredentials, LoginFormError } from "./LoginPage.types";
 import { useAppDispatch } from "../../store";
 import { Dispatch } from "redux";
 import { loginMiddleware } from "../../store/loginSlice/loginSlice.middleware";
-import { AsyncThunkAction } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
+import { selectLoginStatus } from "../../store/loginSlice/loginSlice.selectors";
+import { Status } from "../../utils/constants/Status.enum";
 
 const LoginPage = ({}) => {
 
+    const navigate: NavigateFunction = useNavigate();
+
     const dispatch: Dispatch = useAppDispatch();
+    const loginStatus: Status = useSelector(selectLoginStatus);
 
     const emailInputRef = useRef<HTMLInputElement>();
     const passwordInputRef = useRef<HTMLInputElement>()
 
-    const [userCredentials, setUserCredentials] = useState<LoginCredentials>({
-        email: '',
-        password: ''
-    });
-
     const [formError, setFormError] = useState<LoginFormError>({
         email: false,
         password: false,
-    })
+    });
 
     const signInHandler = (event: FormEvent) => {
         event.preventDefault();
@@ -37,6 +37,7 @@ const LoginPage = ({}) => {
                 } as LoginCredentials) as any);
                 emailInputRef.current.value = "";
                 passwordInputRef.current.value = ""
+                navigate('/')
             };
         }
     };
@@ -121,6 +122,9 @@ const LoginPage = ({}) => {
                             type="submit" 
                             onClick={signInHandler}> Sign In </Button>
                     </FormGroup>
+                        {
+                            loginStatus === Status.FAILED ? <Typography sx={loginPageStyle.loginPageErrorMessage}> Incorect email and password </Typography> : null
+                        }
                     <NavLink 
                         style={loginPageStyle.loginPageRegisterNavLink}  
                         to={'/register'}> 

@@ -1,6 +1,6 @@
 export declare type LoginCredentials = {
-    email: string | undefined,
-    password: string | undefined
+    email: string ,
+    password: string
 };
 
 export declare type LoginFormError = {
