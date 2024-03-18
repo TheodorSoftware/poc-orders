@@ -1,5 +1,3 @@
-import LoginPage from "./LoginPage";
-
 export const loginPageStyle = {
     loginPageContainer: {
         width: '100%',

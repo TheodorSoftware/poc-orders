@@ -1,10 +1,10 @@
-import { Fragment } from "react/jsx-runtime"
+import Navbar from "../../components/Navbar/Navbar";
+import { Box } from "@mui/material";
 
 const DashboardPage = () => {
     return (
-        <Fragment>
-            <h1> Dashboard Page </h1>
-        </Fragment>
+        <Box width={'100%'} height={'100%'} >
+        </Box>
     )
 };
 
