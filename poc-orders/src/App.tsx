@@ -7,6 +7,10 @@ import GuardedRoute from './utils/GuardedRoute/GuardedRoute'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './utils/theme/theme'
 import DashboardLayout from './utils/layouts/DashboardLayout'
+import OrderPage from './pages/order/OrderPage';
+import OrderPageLayout from './utils/layouts/OrderPageLayout'
+import ProductPage from './pages/product/ProductPage'
+import {QueryClient,QueryClientProvider} from 'react-query';
 
 const router = createBrowserRouter([
   {
@@ -19,18 +23,29 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: 
+    element: (
       <GuardedRoute> 
         <DashboardLayout/> 
-      </GuardedRoute>,
+      </GuardedRoute>
+    ),
     children: [
       {
         path: '/',
         element: <DashboardPage />
       },
       {
-        path: '/products',
-        element: <p> Produse </p>
+        path: 'products',
+        element: <OrderPageLayout />,
+        children: [
+          {
+            path: '',
+            element: <OrderPage />
+          },
+          {
+            path: ':id',
+            element: <ProductPage />
+          }
+        ]
       }
     ]
   },
@@ -42,10 +57,14 @@ const router = createBrowserRouter([
 
 function App() {
 
+  const queryClient = new QueryClient();
+
   return (
    <Fragment>
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router}/>    
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}/>    
+      </QueryClientProvider>
     </ThemeProvider>
    </Fragment>
   )

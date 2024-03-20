@@ -37,7 +37,9 @@ const LoginPage = ({}) => {
                 } as LoginCredentials) as any);
                 emailInputRef.current.value = "";
                 passwordInputRef.current.value = ""
-                navigate('/')
+                setTimeout( () => {
+                    navigate('/')
+                }, 50)
             };
         }
     };

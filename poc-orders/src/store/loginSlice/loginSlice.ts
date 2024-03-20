@@ -34,11 +34,11 @@ export const loginSlice: Slice = createSlice({
                     error: action.error.message as string
                 }
             }
-        }).addCase(loginMiddleware.fulfilled, (state)=>{
+        }).addCase(loginMiddleware.fulfilled, (state, action)=>{
             return {
                 ...state,
                 loginResponse: {
-                    body: null,
+                    body: action.payload.email,
                     status: Status.SUCCESS,
                     error: ''
                 }

@@ -7,7 +7,12 @@ export const navbarStyle = {
         alignItems: 'center',
         justifyContent: 'space-between',
         boxShadow: '10px 4px 78px -30px rgba(0,0,0,0.75)',
-        borderRadius: '0px 0px 20px 20px'
+        borderRadius: '0px 0px 20px 0px'
+    },
+    logoContainer:{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     list:{
         width: '50%',
