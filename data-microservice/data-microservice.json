@@ -4,6 +4,9 @@
             "id" : 1,
             "userEmail": "test@test.com",
             "name": "order1",
+            "orderName": "Order 1",
+            "receiver": "Receiver Order1",
+            "sender": "Sender Order 1",
             "products" : [
                 {
                     "id": 1,
@@ -119,6 +122,9 @@
             "id" : 2,
             "userEmail": "test2@test.com",
             "name": "order2",
+            "orderName": "Order 2",
+            "receiver": "Receiver Order2",
+            "sender": "Sender Order 2",
             "products" : [
                 {
                     "id": 1,
@@ -135,6 +141,9 @@
             "id" : 3,
             "userEmail": "test@test.com",
             "name": "order3",
+            "orderName": "Order 3",
+            "receiver": "Receiver Order3",
+            "sender": "Sender Order3",
             "products" : [
                 {
                     "id": 1,

@@ -3,7 +3,7 @@ import { Status } from "../../utils/constants/Status.enum";
 import LoginSlice from "./loginSlice.interface";
 import { loginMiddleware } from "./loginSlice.middleware";
 
-const initialState: LoginSlice = {
+export const initialState: LoginSlice = {
     loginResponse: {
         body: null,
         status: Status.IDLE,
@@ -14,7 +14,18 @@ const initialState: LoginSlice = {
 export const loginSlice: Slice = createSlice({
     name: "loginPage",
     initialState,
-    reducers:{},
+    reducers:{
+        resetLoginSlice: (state,action) => {
+            return{
+                ...state,
+                loginResponse: {
+                    body: action.payload.body,
+                    status: action.payload.status,
+                    error: action.payload.error
+                }
+            }
+        }
+    },
     extraReducers: (builder: ActionReducerMapBuilder<LoginSlice>) => {
         builder.addCase(loginMiddleware.pending, (state) => {
             return {
@@ -47,5 +58,8 @@ export const loginSlice: Slice = createSlice({
     }
  });
 
+export const { resetLoginSlice } = loginSlice.actions;
+
 export default loginSlice.reducer;
+
 

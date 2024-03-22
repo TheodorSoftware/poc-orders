@@ -26,6 +26,10 @@ export const navbarStyle = {
         textDecoration: 'none',
         width: '100px',
         height: '40%',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: "grey",
+        logout:{
+            color: 'blue'
+        }
     }
 }

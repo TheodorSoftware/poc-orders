@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
           element: <DashboardPage />
         },
         {
-          path: 'products',
+          path: 'orders',
           element: <OrderPageLayout />,
           children: [
             {
@@ -39,6 +39,10 @@ export const router = createBrowserRouter([
             {
               path: ':id',
               element: <ProductPage />
+            },
+            {
+              path:'create',
+              element: <p> Create Order Page </p>
             }
           ]
         }

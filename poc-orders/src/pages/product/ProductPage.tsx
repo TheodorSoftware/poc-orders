@@ -1,4 +1,4 @@
-import { Params, useParams } from "react-router-dom";
+import { NavigateFunction, Params, useNavigate, useParams } from "react-router-dom";
 import { useQuery, UseQueryResult } from "react-query";
 import { Order } from "../../utils/interfaces/order.interface";
 import { Product } from "../../utils/interfaces/product.interface";
@@ -12,6 +12,7 @@ import Spinner from "../../utils/spinner/spinner";
 import AddProductModal from "../../components/AddProductModal/AddProductModal";
 
 const ProductPage:React.FC = ():JSX.Element => {
+    const navigate: NavigateFunction = useNavigate();
     const {id}: Readonly<Params<string>> = useParams();
 
     const [products,setProducts] = useState<Product[]>([]);
@@ -76,15 +77,27 @@ const ProductPage:React.FC = ():JSX.Element => {
         isOpenModal(false)
     }
 
+    const goToOrdersTableHandler = (): void => {
+        navigate('/orders')
+    }
+
 
     return(
         <Box sx={productPageStyle.productPageContainer}>
-            <Button 
-                onClick={addProductHandler}
-                sx={productPageStyle.addButton} 
-                variant="outlined">
-                Add Product
-            </Button>
+            <Box sx={productPageStyle.buttonsContainer}>
+                <Button
+                    onClick={goToOrdersTableHandler}
+                    sx={productPageStyle.goBackButton} 
+                    variant="outlined">
+                    Go Back
+                </Button>
+                <Button 
+                    onClick={addProductHandler}
+                    sx={productPageStyle.addButton} 
+                    variant="contained">
+                    Add Product
+                </Button>
+            </Box>
             {
                 data && <DataGrid
                     rows={products}
