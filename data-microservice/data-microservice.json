@@ -18,7 +18,7 @@
                     "id": 2,
                     "name" : "productName2",
                     "date" : "2 - feb - 1970",
-                    "suplier": "supilerName2",
+                    "suplier": "supilerName1",
                     "contactSuplier": "0722345678",
                     "description": "",
                     "notes": ""
@@ -27,7 +27,7 @@
                     "id": 3,
                     "name" : "productName3",
                     "date" : "3 - mar - 1970",
-                    "suplier": "supilerName3",
+                    "suplier": "supilerName1",
                     "contactSuplier": "0732345678",
                     "description": "",
                     "notes": ""
@@ -36,7 +36,7 @@
                     "id": 4,
                     "name" : "productName4",
                     "date" : "4 - ian - 1970",
-                    "suplier": "supilerName4",
+                    "suplier": "supilerName1",
                     "contactSuplier": "0742345678",    
                     "description": "",
                     "notes": ""
@@ -45,7 +45,7 @@
                     "id": 5,
                     "name" : "productName5",
                     "date" : "5 - ian - 1970",
-                    "suplier": "supilerName5",
+                    "suplier": "supilerName2",
                     "contactSuplier": "0752345678",
                     "description": "",
                     "notes": ""
@@ -54,7 +54,7 @@
                     "id": 6,
                     "name" : "productName6",
                     "date" : "6 - ian - 1970",
-                    "suplier": "supilerName6",
+                    "suplier": "supilerName2",
                     "contactSuplier": "0762345678",
                     "description": "",
                     "notes": ""
@@ -63,7 +63,7 @@
                     "id": 7,
                     "name" : "productName7",
                     "date" : "7 - ian - 1970",
-                    "suplier": "supilerName7",
+                    "suplier": "supilerName2",
                     "contactSuplier": "0712345371",
                     "description": "",
                     "notes": ""
@@ -72,7 +72,7 @@
                     "id": 8,
                     "name" : "productName8",
                     "date" : "8 - feb - 1970",
-                    "suplier": "supilerName8",
+                    "suplier": "supilerName3",
                     "contactSuplier": "0722345978",
                     "description": "",
                     "notes": ""
@@ -81,7 +81,7 @@
                     "id": 9,
                     "name" : "productName9",
                     "date" : "9 - mar - 1970",
-                    "suplier": "supilerName9",
+                    "suplier": "supilerName3",
                     "contactSuplier": "0732545678",
                     "description": "",
                     "notes": ""
@@ -90,7 +90,7 @@
                     "id": 10,
                     "name" : "productName10",
                     "date" : "10 - ian - 1970",
-                    "suplier": "supilerName10",
+                    "suplier": "supilerName4",
                     "contactSuplier": "0715345678",
                     "description": "",
                     "notes": ""
@@ -99,7 +99,7 @@
                     "id": 11,
                     "name" : "productName11",
                     "date" : "11 - ian - 1970",
-                    "suplier": "supilerName11",
+                    "suplier": "supilerName5",
                     "contactSuplier": "0714345678",
                     "description": "",
                     "notes": ""
@@ -108,7 +108,7 @@
                     "id": 12,
                     "name" : "productName12",
                     "date" : "12 - ian - 1970",
-                    "suplier": "supilerName12",
+                    "suplier": "supilerName5",
                     "contactSuplier": "0713345678",
                     "description": "",
                     "notes": ""

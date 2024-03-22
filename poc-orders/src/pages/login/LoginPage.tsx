@@ -3,7 +3,6 @@ import { Box, Button, FormGroup, Typography } from "@mui/material";
 import { loginPageStyle } from "./loginPageStyle";
 import { TextField } from '@mui/material';
 import { NavLink, NavigateFunction, useNavigate } from "react-router-dom";
-import { emailRegex } from "../../utils/regex/emailReGex";
 import { LoginCredentials, LoginFormError } from "./LoginPage.types";
 import { useAppDispatch } from "../../store";
 import { Dispatch } from "redux";
@@ -11,6 +10,7 @@ import { loginMiddleware } from "../../store/loginSlice/loginSlice.middleware";
 import { useSelector } from "react-redux";
 import { selectLoginStatus } from "../../store/loginSlice/loginSlice.selectors";
 import { Status } from "../../utils/constants/Status.enum";
+import { Rules, ValidationRegexRules } from "../../utils/regex/validationRegexRules";
 
 const LoginPage = ({}) => {
 
@@ -46,7 +46,7 @@ const LoginPage = ({}) => {
 
     const checkUserEmailHandler = () => {
         if(emailInputRef.current){
-            if(!emailRegex.test(emailInputRef.current.value)){
+            if(!ValidationRegexRules.get(Rules.EMAIL)?.test(emailInputRef.current.value)){
                 setFormError(prevFormError => {
                     return {
                         ...prevFormError,

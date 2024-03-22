@@ -1,15 +1,21 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { loginSlice } from "./loginSlice/loginSlice";
 import { useDispatch } from "react-redux";
+import { persistStore } from "redux-persist";
+import { persistedReducer } from "./redux-persist";
+
+export const RootReducer = combineReducers({
+    loginSlice: loginSlice.reducer
+})
 
 const store = configureStore({
-    reducer: {
-        loginSlice: loginSlice.reducer
-    }
+    reducer: persistedReducer(RootReducer),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof RootReducer>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };

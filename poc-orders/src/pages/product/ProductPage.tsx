@@ -9,11 +9,13 @@ import { productPageStyle } from "./productPageStyle";
 import { getProducts } from "../../api/api";
 import AbstractModal from "../../utils/AbstractModal/AbstractModal";
 import Spinner from "../../utils/spinner/spinner";
+import AddProductModal from "../../components/AddProductModal/AddProductModal";
 
 const ProductPage:React.FC = ():JSX.Element => {
     const {id}: Readonly<Params<string>> = useParams();
 
     const [products,setProducts] = useState<Product[]>([]);
+    const [supliers, setSupliers] = useState<string[]>([]);
     const [openModal, isOpenModal] = useState<boolean>(false);
 
     const columns: GridColDef<(typeof products)[number]>[] = [
@@ -51,8 +53,19 @@ const ProductPage:React.FC = ():JSX.Element => {
         if(id){
             const response: Product[] = await getProducts(id.toString());
             setProducts(response);
+            extractSupliersFromResponse(response);
             return response;
         }
+    }
+
+    const extractSupliersFromResponse = (response: Product[]):void => {
+        let productSupliers: string[] = [];
+        response.forEach( (product: Product) => {
+            if(!productSupliers.find( suplier => suplier === product.suplier)){
+                productSupliers.push(product.suplier);
+            }
+        });
+        setSupliers(productSupliers);
     }
 
     const addProductHandler= ():void => {
@@ -92,7 +105,9 @@ const ProductPage:React.FC = ():JSX.Element => {
                 isLoading && <Spinner />
             }
             <AbstractModal isOpen={openModal} closeModal={closeProductHandler}>
-                <p> lol </p>
+                <AddProductModal 
+                    listOfSupliers={supliers}
+                    closeModal={closeProductHandler}/>
             </AbstractModal>
         </Box>
     )
